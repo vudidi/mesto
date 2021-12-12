@@ -9,7 +9,7 @@ const jobProfile = document.querySelector(".profile__subtitle");
 
 function togglePopup(evt) {
   evt.preventDefault();
-  popup.classList.toggle("popup_opened");
+  popup.classList.toggle("popup_opened")
 };
 
 buttonEdit.addEventListener("click", togglePopup);
@@ -19,7 +19,7 @@ function formSubmitHandler(evt) {
   evt.preventDefault();
   nameProfile.textContent = `${nameInput.value}`;
   jobProfile.textContent = `${jobInput.value}`;
-  popup.classList.toggle("popup_opened");
+  popup.classList.toggle("popup_opened")
 };
 
 formElement.addEventListener("submit", formSubmitHandler);

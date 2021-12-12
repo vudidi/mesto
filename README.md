@@ -14,4 +14,4 @@
 * Методология БЭМ для классов - Nested БЭМ
 * DOM (работа с разметкой документа с помощью JS и DOM-интерфейса)
 
-Сайт можно посмотреть по ссылке https://vudidi.github.io/mesto/index.html
+Сайт можно посмотреть по ссылке https://vudidi.github.io/mesto/
