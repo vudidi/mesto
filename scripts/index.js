@@ -17,8 +17,8 @@ buttonClose.addEventListener("click", togglePopup);
 
 function formSubmitHandler(evt) {
   evt.preventDefault();
-  nameProfile.textContent = `${nameInput.value}`;
-  jobProfile.textContent = `${jobInput.value}`;
+  nameProfile.textContent = nameInput.value;
+  jobProfile.textContent = jobInput.value;
   popup.classList.toggle("popup_opened")
 };
 
