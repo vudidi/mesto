@@ -1,3 +1,10 @@
 .card__like_active {
-    
+  background: transparent url(../../../../images/button-like-active.svg);
+  border: none;
+  padding: 0;
+  width: 22px;
+  height: 19px;
+  position: absolute;
+  right: 20px;
+  bottom: 30px;
 }
