@@ -3,11 +3,3 @@
   height: 120px;
   border-radius: 50%;
 }
-
-@media screen and (max-width: 960px) {
-  .profile__title {
-    position: absolute;
-    left: 70px;
-    bottom: 162.25px;
-  }
-}

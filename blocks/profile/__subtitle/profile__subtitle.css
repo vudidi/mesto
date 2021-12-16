@@ -1,4 +1,5 @@
 .profile__subtitle {
+  max-width: 294px;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
@@ -7,12 +8,9 @@
 
 @media screen and (max-width: 960px) {
   .profile__subtitle {
-    width: 282px;
+    max-width: 189px;
     font-size: 14px;
     line-height: 17px;
     text-align: center;
-    position: absolute;
-    left: 0;
-    bottom: 80px;
   }
 }
