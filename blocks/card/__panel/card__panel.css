@@ -1,34 +1,31 @@
 .card__panel {
   background-color: #ffffff;
   max-width: 282px;
-  height: 79px;
-  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 1024px) {
   .card__panel {
     max-width: 362px;
-    height: 74px;
   }
 }
 
 @media screen and (max-width: 800px) {
   .card__panel {
     max-width: 282px;
-    height: 79px;
   }
 }
 
 @media screen and (max-width: 680px) {
   .card__panel {
     max-width: 362px;
-    height: 74px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .card__panel {
     max-width: 282px;
-    height: 79px;
   }
-}

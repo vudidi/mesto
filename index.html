@@ -21,8 +21,8 @@
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
                     <p class="profile__subtitle">Исследователь океана</p>
                 </div>
-                <button class="profile__button-edit"></button>
-                <button class="profile__button-add"></button>
+                <button class="profile__button-edit" type="button"></button>
+                <button class="profile__button-add" type="button"></button>
             </section>
 
             <ul class="cards">
@@ -30,42 +30,42 @@
                     <img src="./images/item-1.png" alt="Фотография природы" class="card__image">
                     <div class="card__panel">
                         <h3 class="card__title">Ирик-Чат</h3>
-                        <button class="card__like"></button>
+                        <button class="card__like" type="button"></button>
                     </div>
                 </li>
                 <li class="card">
                     <img src="./images/item-2.png" alt="Фотография природы" class="card__image">
                     <div class="card__panel">
                         <h3 class="card__title">Сахалин</h3>
-                        <button class="card__like"></button>
+                        <button class="card__like" type="button"></button>
                     </div>
                 </li>
                 <li class="card">
                     <img src="./images/item-3.png" alt="Фотография природы" class="card__image">
                     <div class="card__panel">
                         <h3 class="card__title">Карелия</h3>
-                        <button class="card__like"></button>
+                        <button class="card__like" type="button"></button>
                     </div>
                 </li>
                 <li class="card">
                     <img src="./images/item-4.png" alt="Фотография природы" class="card__image">
                     <div class="card__panel">
                         <h3 class="card__title">Саяны</h3>
-                        <button class="card__like"></button>
+                        <button class="card__like" type="button"></button>
                     </div>
                 </li>
                 <li class="card">
                     <img src="./images/item-5.png" alt="Фотография природы" class="card__image">
                     <div class="card__panel">
                         <h3 class="card__title">Камчатка</h3>
-                        <button class="card__like"></button>
+                        <button class="card__like" type="button"></button>
                     </div>
                 </li>
                 <li class="card">
                     <img src="./images/item-6.png" alt="Фотография природы" class="card__image">
                     <div class="card__panel">
                         <h3 class="card__title">Эльбрус</h3>
-                        <button class="card__like"></button>
+                        <button class="card__like" type="button"></button>
                     </div>
                 </li>
             </ul>
@@ -75,15 +75,19 @@
             <p class="footer__copyright">&#169; 2020 Mesto Russia</p>
         </footer>
     </div>
-    <section class="popup">
-        <form class="popup__container">
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <input type="text" class="popup__name" value="Жак-Ив Кусто">
-            <input type="text" class="popup__about" value="Исследователь океана">
-            <button class="popup__save">Сохранить</button>
-            <button class="popup__close"></button>
-        </form>
-    </section>
+    <div class="popup">
+        <div class="popup__container">
+            <button class="popup__close" type="button"></button>
+            <form class="popup__form" name="popupForm">
+                <h2 class="popup__form-title">Редактировать профиль</h2>
+                <input type="text" name="name" class="popup__form-input popup__form-input_info_name"
+                    value="Жак-Ив Кусто">
+                <input type="text" name="about" class="popup__form-input popup__form-input_info_about"
+                    value="Исследователь океана">
+                <button class="popup__form-save" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
     <script src="scripts/index.js"></script>
 </body>
 

@@ -1,10 +1,13 @@
 .profile__text {
   color: #ffffff;
-  margin: 22px 0 18px 30px;
+  margin: 22px 0 18px 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 960px) {
   .profile__text {
-    margin: 25px 0 28px;
+    margin: 25px 0 32px;
   }
 }

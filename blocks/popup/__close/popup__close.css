@@ -3,10 +3,10 @@
   height: 32px;
   background: transparent no-repeat url(../../../images/item-close.svg);
   border: none;
-  position: absolute;
-  right: -40px;
-  top: -40px;
   cursor: pointer;
+  position: absolute;
+  top: -40px;
+  right: -40px;
 }
 
 .popup__close:hover {
@@ -19,7 +19,7 @@
     width: 20px;
     height: 20px;
     background: transparent no-repeat url(../../../images/item-close-small.svg);
-    right: 0px;
     top: -36px;
+    right: 0;
   }
 }
