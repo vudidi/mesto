@@ -11,11 +11,11 @@
   margin: 48px 0 37px;
   padding: 0;
   cursor: pointer;
+  transition: linear 0.3s;
 }
 
 .popup__form-save:hover {
   background: rgba(0, 0, 0, 0.8);
-  transition: linear 0.3s;
 }
 
 @media screen and (max-width: 768px) {

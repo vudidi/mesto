@@ -4,14 +4,15 @@
   background: transparent no-repeat url(../../../images/item-close.svg);
   border: none;
   cursor: pointer;
+  padding: 0;
   position: absolute;
   top: -40px;
   right: -40px;
+  transition: linear 0.3s;
 }
 
 .popup__close:hover {
   opacity: 0.6;
-  transition: linear 0.3s;
 }
 
 @media screen and (max-width: 768px) {

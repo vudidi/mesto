@@ -8,11 +8,11 @@
   margin: 0 0 0 216px;
   cursor: pointer;
   align-self: center;
+  transition: linear 0.3s;
 }
 
 .profile__button-add:hover {
   opacity: 0.6;
-  transition: linear 0.3s;
 }
 
 @media screen and (max-width: 1100px) {

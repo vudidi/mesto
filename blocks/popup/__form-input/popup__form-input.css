@@ -1,6 +1,9 @@
 .popup__form-input {
-  width: 354px;
-  min-height: 27px;
+  max-width: 354px;
+  width: 100%;
+  /*при выставлении min-width + width 100% поля занимают всю ширину формы, 
+  поэтому использовала сочетание max-width + width 100% */
+  padding-bottom: 13px;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
@@ -9,7 +12,7 @@
 }
 
 .popup__form-input:nth-of-type(1) {
-  margin-bottom: 30px;
+  margin-bottom: 26px;
 }
 
 .popup__form-input:focus {
@@ -18,6 +21,6 @@
 
 @media screen and (max-width: 768px) {
   .popup__form-input {
-    width: 234px;
+    max-width: 234px;
   }
 }

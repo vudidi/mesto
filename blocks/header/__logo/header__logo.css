@@ -2,7 +2,8 @@
   max-width: 142px;
   min-height: 33px;
   background-image: url(../../../images/logo.svg);
-  background-size: cover;
+  background-size: 142px;
+  background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 768px) {
@@ -10,5 +11,7 @@
     max-width: 103.74px;
     min-height: 24.4px;
     margin-left: 27px;
+    background-size: 102px;
+    background-repeat: no-repeat;
   }
 }

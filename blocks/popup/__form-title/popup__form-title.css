@@ -1,16 +1,19 @@
 .popup__form-title {
-  width: 358px;
+  max-width: 358px;
+  width: 100%;
+  /*при выставлении min-width + width 100% поле занимает всю ширину формы, 
+  поэтому использовала сочетание max-width + width 100% */
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
-  margin: 34px 0 40px;
+  margin: 34px 0 43px;
 }
 
 @media screen and (max-width: 768px) {
   .popup__form-title {
-    width: 234px;
+    max-width: 234px;
     font-size: 18px;
     line-height: 22px;
-    margin: 25px auto 68px;
+    margin: 25px auto 72px;
   }
 }
