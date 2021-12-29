@@ -33,13 +33,6 @@ function closePopup(element) {
   element.classList.remove('popup_opened')
 };
 
-// Открыть попап карточки
-function openPopupCardContent() {
-  cardTitle.value = "";
-  cardLink.value = "";
-  openPopup(cardContentPopup)
-}
-
 // Открыть попап профиля
 function openPopupProfileInfo() {
   nameInput.value = nameProfile.textContent;
@@ -55,12 +48,6 @@ function submitFormHandlerProfile(evt) {
   closePopup(profileInfoPopup)
 };
 
-// Слушатели
-buttonEditProfile.addEventListener('click', openPopupProfileInfo);
-buttonCloseProfile.addEventListener('click', () => closePopup(profileInfoPopup));
-buttonAddCard.addEventListener('click', openPopupCardContent);
-buttonCloseCardContent.addEventListener('click', () => closePopup(cardContentPopup));
-
 // Поставить лайк фото
 function likePhoto(e) {
   e.target.classList.toggle('card__like_active')
@@ -74,6 +61,7 @@ function removeCard(e) {
 // Открыть изображение
 function handleImageClick(title, link) {
   photoTitle.textContent = title;
+  photoLink.alt = title; //Добавить alt каждой открытой картинке
   photoLink.src = link;
   openPopup(popupImage)
 }
@@ -86,18 +74,16 @@ function cloneCardTemplate(item) {
   const cardElement = cardsTemplate.cloneNode(true);
 
   cardElement.querySelector('.card__title').textContent = item.name;
+  cardElement.querySelector('.card__image').alt = item.name; //Добавить alt каждой добавленной картинке
   cardElement.querySelector('.card__image').src = item.link;
 
   cardElement.querySelector('.card__image').addEventListener('click', function () {
     handleImageClick(item.name, item.link)
-  })
-  buttonClosepopupImage.addEventListener('click', () => closePopup(popupImage));
+  });  
 
   const likeCardButton = cardElement.querySelector('.card__like');
   const deleteCardButton = cardElement.querySelector('.card__delete');
-
-  formElementProfile.addEventListener('submit', submitFormHandlerProfile);
-  formElementCardContent.addEventListener('submit', submitFormHandlerCard);
+  
   likeCardButton.addEventListener('click', likePhoto);
   deleteCardButton.addEventListener('click', removeCard);
 
@@ -125,5 +111,16 @@ function submitFormHandlerCard(evt) {
     name: cardTitle.value,
     link: cardLink.value
   });
+  cardTitle.value = "";
+  cardLink.value = "";
   closePopup(cardContentPopup);
 };
+
+// Слушатели
+buttonEditProfile.addEventListener('click', openPopupProfileInfo);
+buttonCloseProfile.addEventListener('click', () => closePopup(profileInfoPopup));
+buttonAddCard.addEventListener('click', () => openPopup(cardContentPopup));
+buttonCloseCardContent.addEventListener('click', () => closePopup(cardContentPopup));
+formElementProfile.addEventListener('submit', submitFormHandlerProfile);
+formElementCardContent.addEventListener('submit', submitFormHandlerCard);
+buttonClosepopupImage.addEventListener('click', () => closePopup(popupImage));
