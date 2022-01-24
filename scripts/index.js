@@ -24,13 +24,31 @@ const buttonClosepopupImage = popupImage.querySelector('.popup__close');
 const photoTitle = popupImage.querySelector('.popup-photo__title');
 const photoLink = popupImage.querySelector('.popup-photo__link');
 
+// Esc
+function closeOnEscape(evt) {
+  if (evt.keyCode === 27) {
+    closePopup(document.querySelector('.popup_opened'));
+  }
+};
+
+// Overlay
+function closeOnOverlay(evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopup(document.querySelector('.popup_opened'));
+  }
+};
+
 // Открыть попап и Закрыть попап. Общие
 function openPopup(element) {
-  element.classList.add('popup_opened')
+  element.classList.add('popup_opened');
+  element.addEventListener('mousedown', closeOnOverlay);
+  document.addEventListener('keydown', closeOnEscape);
 };
 
 function closePopup(element) {
-  element.classList.remove('popup_opened')
+  element.classList.remove('popup_opened');
+  element.removeEventListener('mousedown', closeOnOverlay);
+  document.removeEventListener('keydown', closeOnEscape);
 };
 
 // Открыть попап профиля
@@ -38,6 +56,11 @@ function openPopupProfileInfo() {
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
   openPopup(profileInfoPopup);
+  const buttonSubmit = formElementProfile.querySelector('.popup__form-save');
+  buttonSubmit.classList.add('popup__form-save_disabled');
+  buttonSubmit.setAttribute('disabled', true);
+  hideInputError(profileInfoPopup, nameInput, validationSet);
+  hideInputError(profileInfoPopup, jobInput, validationSet);
 };
 
 // Сохранить попап профиля
@@ -45,23 +68,33 @@ function submitFormHandlerProfile(evt) {
   evt.preventDefault();
   nameProfile.textContent = nameInput.value;
   jobProfile.textContent = jobInput.value;
-  closePopup(profileInfoPopup)
+  closePopup(profileInfoPopup);
 };
 
+function openPopupCardAdd() {
+  openPopup(cardContentPopup);
+  formElementCardContent.reset();
+  const buttonSubmit = formElementCardContent.querySelector('.popup__form-save');
+  buttonSubmit.classList.add('popup__form-save_disabled');
+  buttonSubmit.setAttribute('disabled', true);
+  hideInputError(cardContentPopup, titleInput, validationSet);
+  hideInputError(cardContentPopup, linkInput, validationSet);
+}
+
 // Поставить лайк фото
-function likePhoto(e) {
-  e.target.classList.toggle('card__like_active')
+function likePhoto(evt) {
+  evt.target.classList.toggle('card__like_active')
 };
 
 // Удалить карточку
-function removeCard(e) {
-  e.target.closest('.card').remove()
+function removeCard(evt) {
+  evt.target.closest('.card').remove()
 };
 
 // Открыть изображение
 function handleImageClick(title, link) {
   photoTitle.textContent = title;
-  photoLink.alt = title; //Добавить alt каждой открытой картинке
+  photoLink.alt = title;
   photoLink.src = link;
   openPopup(popupImage)
 }
@@ -74,16 +107,16 @@ function cloneCardTemplate(item) {
   const cardElement = cardsTemplate.cloneNode(true);
 
   cardElement.querySelector('.card__title').textContent = item.name;
-  cardElement.querySelector('.card__image').alt = item.name; //Добавить alt каждой добавленной картинке
+  cardElement.querySelector('.card__image').alt = item.name;
   cardElement.querySelector('.card__image').src = item.link;
 
   cardElement.querySelector('.card__image').addEventListener('click', function () {
     handleImageClick(item.name, item.link)
-  });  
+  });
 
   const likeCardButton = cardElement.querySelector('.card__like');
   const deleteCardButton = cardElement.querySelector('.card__delete');
-  
+
   likeCardButton.addEventListener('click', likePhoto);
   deleteCardButton.addEventListener('click', removeCard);
 
@@ -119,7 +152,7 @@ function submitFormHandlerCard(evt) {
 // Слушатели
 buttonEditProfile.addEventListener('click', openPopupProfileInfo);
 buttonCloseProfile.addEventListener('click', () => closePopup(profileInfoPopup));
-buttonAddCard.addEventListener('click', () => openPopup(cardContentPopup));
+buttonAddCard.addEventListener('click', openPopupCardAdd);
 buttonCloseCardContent.addEventListener('click', () => closePopup(cardContentPopup));
 formElementProfile.addEventListener('submit', submitFormHandlerProfile);
 formElementCardContent.addEventListener('submit', submitFormHandlerCard);
