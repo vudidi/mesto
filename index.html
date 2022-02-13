@@ -47,7 +47,7 @@
     <div class="popup popup_type_profile">
       <div class="popup__container">
         <button class="popup__close" type="button"></button>
-        <form class="popup__form" name="popupForm-profile" novalidate>
+        <form class="popup__form" id="popupForm-profile" novalidate>
           <h2 class="popup__form-title">Редактировать профиль</h2>
           <input
             type="text"
@@ -81,7 +81,7 @@
     <div class="popup popup_type_card">
       <div class="popup__container">
         <button class="popup__close" type="button"></button>
-        <form class="popup__form" name="popupForm-card" novalidate>
+        <form class="popup__form" id="popupForm-card" novalidate>
           <h2 class="popup__form-title">Новое место</h2>
           <input
             type="text"
@@ -119,9 +119,7 @@
         <h3 class="popup-photo__title"></h3>
       </div>
     </div>
-
-    <script src="scripts/initialCards.js"></script>
-    <script src="scripts/validate.js"></script>
-    <script src="scripts/index.js"></script>    
+  
+    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>

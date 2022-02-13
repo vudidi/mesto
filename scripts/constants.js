@@ -1,4 +1,4 @@
-const initialCards = [
+export const initialCards = [
     {
     name: 'Йеллоустонский национальный парк',
     link: 'https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
@@ -24,3 +24,12 @@ const initialCards = [
     link: 'https://images.unsplash.com/photo-1631010098924-16f28a81ef8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1161&q=80'
   }
 ]
+
+export const validationSet = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__form-input',
+    submitButtonSelector: '.popup__form-save',
+    inactiveButtonClass: 'popup__form-save_disabled',
+    inputErrorClass: 'popup__form-input_type_error',
+    errorClass: 'popup__error_visible'
+}
