@@ -9,12 +9,14 @@ export class Card {
   constructor(data, cardTemplateSelector) {
     this._name = data.name;
     this._link = data.link;
-    this._template = document.querySelector(cardTemplateSelector).content;
+    this._template = cardTemplateSelector;
   }
 
   // получить шаблон карточки
   _getTemplate() {
-    const cardElement = this._template
+    const cardElement = document
+      .querySelector(this._template)
+      .content
       .querySelector('.card')
       .cloneNode(true);
     return (cardElement);
@@ -54,13 +56,14 @@ export class Card {
   }
 
   // Поставить лайк фото
-  _likePhoto(evt) {
-    evt.target.classList.toggle('card__like_active')
+  _likePhoto = () => {
+    this._likeCardButton.classList.toggle('card__like_active')
   }
 
   // Удалить карточку
-  _removeCard(evt) {
-    evt.target.closest('.card').remove()
+  _removeCard = () => {
+    this._element.remove();
+    this._element = null;
   }
 
 }

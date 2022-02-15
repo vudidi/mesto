@@ -5,7 +5,6 @@ import {
   initialCards,
   validationSet
 } from './constants.js'
-
 import {
   FormValidator
 } from './FormValidator.js'
@@ -27,8 +26,7 @@ const jobProfile = document.querySelector('.profile__subtitle');
 // Переменные для попапа карточек
 const buttonCloseCardContent = cardContentPopup.querySelector('.popup__close');
 const formElementCardContent = cardContentPopup.querySelector('.popup__form');
-const titleInput = cardContentPopup.querySelector('.popup__form-input_info_title');
-const linkInput = cardContentPopup.querySelector('.popup__form-input_info_link');
+
 
 // Переменные для попапа фотографии
 export const popupImage = document.querySelector('.popup-photo');
@@ -68,6 +66,9 @@ const cardContentForm = document.querySelector('#popupForm-card');
 const cardContentValidator = new FormValidator(validationSet, cardContentForm);
 cardContentValidator.enableValidation();
 
+const titleInput = cardContentPopup.querySelector('.popup__form-input_info_title');
+const linkInput = cardContentPopup.querySelector('.popup__form-input_info_link');
+
 // Открыть попап карточки
 function openPopupCardAdd() {
   openPopup(cardContentPopup);
@@ -75,6 +76,9 @@ function openPopupCardAdd() {
   cardContentValidator.resetFormElements(titleInput);
   cardContentValidator.resetFormElements(linkInput);
 };
+// // В submitFormHandlerCard добавлена отдельная функция для блокировки кнопки отправки (disableSubmitButton), 
+// т.к. disable кнопки в resetFormElements происходит только при невалидной форме, 
+// что позволяет также создать сразу несколько новых карточек
 
 // Валидация формы профиля
 const profileInfoForm = document.querySelector('#popupForm-profile');
@@ -102,12 +106,18 @@ function submitFormHandlerProfile(evt) {
 function receiveCard(item) {
   const card = new Card(item, '#tmpl-cards');
   const newCard = card.generateCard();
-  document.querySelector('.cards').prepend(newCard);
+  return newCard
 };
+
+// Добавить краточку в разметку
+function renderCard(item) {
+  const renderedCard = receiveCard(item);
+  document.querySelector('.cards').prepend(renderedCard);
+}
 
 // Добавить карточки из массива их в разметку
 initialCards.forEach((item) => {
-  receiveCard(item)
+  renderCard(item)
 });
 
 // Создать карточку
@@ -116,10 +126,11 @@ const cardLink = document.querySelector('.popup__form-input_info_link');
 
 function submitFormHandlerCard(evt) {
   evt.preventDefault();
-  receiveCard({
+  renderCard({
     name: cardTitle.value,
     link: cardLink.value
   });
+  cardContentValidator.disableSubmitButton();
   closePopup(cardContentPopup);
 };
 

@@ -16,7 +16,7 @@ export class FormValidator {
         inputElement.classList.remove(this._settings.inputErrorClass);
         formError.classList.remove(this._settings.errorClass);
         formError.textContent = "";
-    };    
+    };
 
     _toggleButtonState() {
         this._buttonSubmit = this._form.querySelector(this._settings.submitButtonSelector)
@@ -59,11 +59,14 @@ export class FormValidator {
         })
     };
 
-    // Деактивировать кнопку отправки формы и очистить ошибки для инпутов
+    // Деактивировать кнопку отправки формы
+    disableSubmitButton() {
+        this._buttonSubmit.setAttribute('disabled', true);
+    };
+
+    // Очистить ошибки для инпутов
     resetFormElements(inputElement) {
-        this._hideInputError(inputElement)
+        this._hideInputError(inputElement);
         this._toggleButtonState();
     };
 }
-
-
