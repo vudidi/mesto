@@ -1,14 +1,11 @@
-import {
-  photoTitle,
-  photoLink,
-  popupImage,
-  openPopup
-} from './index.js'
-
 export class Card {
-  constructor(data, cardTemplateSelector) {
-    this._name = data.name;
+  constructor({
+    data,
+    handleCardClick
+  }, cardTemplateSelector) {
+    this._title = data.title;
     this._link = data.link;
+    this._handleCardClick = handleCardClick;
     this._template = cardTemplateSelector;
   }
 
@@ -19,7 +16,7 @@ export class Card {
       .content
       .querySelector('.card')
       .cloneNode(true);
-    return (cardElement);
+    return (cardElement);    
   }
 
   // Наполнить шаблон карточки контентом
@@ -31,8 +28,8 @@ export class Card {
 
     this._setEventListeners();
 
-    this._element.querySelector('.card__title').textContent = this._name;
-    this._cardImage.alt = this._name;
+    this._element.querySelector('.card__title').textContent = this._title;
+    this._cardImage.alt = this._title;
     this._cardImage.src = this._link;
 
     return this._element;
@@ -41,18 +38,10 @@ export class Card {
   // Слушатели
   _setEventListeners() {
     this._cardImage.addEventListener('click', () => {
-      this._handleImageClick(this._name, this._link)
+      this._handleCardClick(this._title, this._link)
     });
     this._likeCardButton.addEventListener('click', this._likePhoto);
     this._deleteCardButton.addEventListener('click', this._removeCard);
-  }
-
-  // Открыть изображение
-  _handleImageClick() {
-    photoTitle.textContent = this._name;
-    photoLink.alt = this._name;
-    photoLink.src = this._link;
-    openPopup(popupImage);
   }
 
   // Поставить лайк фото
