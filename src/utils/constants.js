@@ -34,14 +34,18 @@ export const validationSet = {
     errorClass: 'popup__error_visible'
 }
 
-
 export const cardContentPopup = document.querySelector('.popup_type_card');
 export const buttonEditProfile = document.querySelector('.profile__button-edit');
 export const buttonAddCard = document.querySelector('.profile__button-add');
-export const popupImage = document.querySelector('.popup-photo');
-export const photoTitle = popupImage.querySelector('.popup-photo__title');
-export const photoLink = popupImage.querySelector('.popup-photo__link');
 export const titleInput = cardContentPopup.querySelector('.popup__form-input_info_title');
 export const linkInput = cardContentPopup.querySelector('.popup__form-input_info_link');
 export const nameInput = document.querySelector('.popup__form-input_info_name');
 export const jobInput = document.querySelector('.popup__form-input_info_about');
+export const popupImage = '.popup-photo';
+export const popupCard = '.popup_type_card';
+export const popupProfile = '.popup_type_profile';
+export const cardContainer = '.cards'
+export const profileName = '.profile__title'
+export const profileAbout = '.profile__subtitle'
+export const profileInfoForm = document.querySelector('#popupForm-profile');
+export const cardContentForm = document.querySelector('#popupForm-card');
