@@ -26,6 +26,8 @@ export const profileAvatar = '.profile__image';
 export const avatarPopup = '.popup_type_avatar';
 export const profileInfoForm = document.querySelector('#popupForm-profile');
 export const cardContentForm = document.querySelector('#popupForm-card');
+export const avatarForm = document.querySelector('#popupForm-avatar');
+export const avatarLinkInput = avatarForm.querySelector('.popup__form-input_avatar_link');
 export const buttonEditAvatar = document.querySelector('.profile__image');
 
 export function renderLoadingProfile(isLoading) {

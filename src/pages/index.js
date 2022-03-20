@@ -43,7 +43,9 @@ import {
   cardContentForm,
   profileAvatar,
   buttonEditAvatar,
-  avatarPopup
+  avatarPopup,
+  avatarForm,
+  avatarLinkInput
 } from '../utils/constants.js'
 
 import {
@@ -52,6 +54,7 @@ import {
 
 const cardContentValidator = new FormValidator(validationSet, cardContentForm);
 const profileInfoValidator = new FormValidator(validationSet, profileInfoForm);
+const popupAvatarValidator = new FormValidator(validationSet, avatarForm);
 const newData = new UserInfo(profileName, profileAbout, profileAvatar, {
   data: []
 });
@@ -60,6 +63,7 @@ let userId
 // Валидация
 profileInfoValidator.enableValidation();
 cardContentValidator.enableValidation();
+popupAvatarValidator.enableValidation();
 
 // Создать карточу
 function createNewCard(item) {
@@ -149,7 +153,6 @@ const popupCardCreate = new PopupWithForm({
         popupCardCreate.close()
         newSection.addItem(createdCard);
       })
-
     
     cardContentValidator.disableSubmitButton();
   }
@@ -176,8 +179,7 @@ const popupUpdateAvatar = new PopupWithForm({
     api.updateAvatar(data.link)
     .then(() => {
       popupUpdateAvatar.close()
-    })
-    
+    })    
   }
 }, avatarPopup);
 
@@ -198,7 +200,8 @@ buttonEditProfile.addEventListener('click', () => {
 });
 
 buttonEditAvatar.addEventListener('click', () => {
-  popupUpdateAvatar.open()
+  popupUpdateAvatar.open();
+  popupAvatarValidator.resetFormElements(avatarLinkInput);
 })
 
 // Установить слушатели
