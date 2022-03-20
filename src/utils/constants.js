@@ -1,30 +1,3 @@
-export const initialCards = [
-    {
-    title: 'Йеллоустонский национальный парк',
-    link: 'https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
-  },
-  {
-    title: 'Чима д`Аста',
-    link: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1213&q=80'
-  },
-  {
-    title: 'Гейрангер-фьорд',
-    link: 'https://images.unsplash.com/photo-1497273145860-da6d5426776f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80'
-  },
-  {
-    title: 'Капитол-Риф',
-    link: 'https://images.unsplash.com/photo-1590377077710-f024869db419?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
-  },
-  {
-    title: 'Улуру',
-    link: 'https://images.unsplash.com/photo-1627868053217-b5cf77505bc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
-  },
-  {
-    title: 'Карапынар',
-    link: 'https://images.unsplash.com/photo-1631010098924-16f28a81ef8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1161&q=80'
-  }
-]
-
 export const validationSet = {
     formSelector: '.popup__form',
     inputSelector: '.popup__form-input',
@@ -41,11 +14,47 @@ export const titleInput = cardContentPopup.querySelector('.popup__form-input_inf
 export const linkInput = cardContentPopup.querySelector('.popup__form-input_info_link');
 export const nameInput = document.querySelector('.popup__form-input_info_name');
 export const jobInput = document.querySelector('.popup__form-input_info_about');
+export const profileImage = document.querySelector('.profile__image');
 export const popupImage = '.popup-photo';
 export const popupCard = '.popup_type_card';
 export const popupProfile = '.popup_type_profile';
+export const popupConfirm = '.popup_type_confirm';
 export const cardContainer = '.cards'
 export const profileName = '.profile__title'
 export const profileAbout = '.profile__subtitle'
+export const profileAvatar = '.profile__image';
+export const avatarPopup = '.popup_type_avatar';
 export const profileInfoForm = document.querySelector('#popupForm-profile');
 export const cardContentForm = document.querySelector('#popupForm-card');
+export const buttonEditAvatar = document.querySelector('.profile__image');
+
+export function renderLoadingProfile(isLoading) {
+    if (isLoading) {
+      document.getElementById('save-profile').textContent = 'Сохранение...'
+    } else {
+      document.getElementById('save-profile').textContent = 'Сохранить'
+    }
+  }
+  export function renderLoadingAvatar(isLoading) {
+    if (isLoading) {
+      document.getElementById('save-avatar').textContent = 'Сохранение...'
+    } else {
+      document.getElementById('save-avatar').textContent = 'Сохранить'
+    }
+  }
+  
+  export function renderLoadingNewCard(isLoading) {
+    if (isLoading) {
+      document.getElementById('save-photo').textContent = 'Сохранение...'
+    } else {
+      document.getElementById('save-photo').textContent = 'Создать'
+    }
+  }
+  
+  export function renderLoadingDeleteCard(isLoading) {
+    if (isLoading) {    
+      document.getElementById('delete-confirm').textContent = 'Сохранение...'
+    } else {
+      document.getElementById('delete-confirm').textContent = 'Да'
+    }
+  }

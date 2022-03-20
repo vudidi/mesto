@@ -1,14 +1,6 @@
 .card__like {
-  background: transparent url(../../../images/button-like.svg);
-  border: none;
   margin: 0 19px 5px 0;
   padding: 0;
-  width: 22px;
-  height: 19px;
-  cursor: pointer;
-  transition: linear 0.3s;
-}
-
-.card__like:hover {
-  opacity: 0.5;
+  display: flex;
+  flex-direction: column;
 }

@@ -35,5 +35,5 @@ export class Popup {
         });
 
         this._popup.addEventListener('mousedown', this._closeOnOverlay.bind(this));
-    }
+    }    
 }
