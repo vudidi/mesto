@@ -46,7 +46,7 @@
   <div class="popup popup_type_profile">
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
-      <form class="popup__form" id="popupForm-profile" novalidate>
+      <form class="popup__form" name="profile" id="popupForm-profile" novalidate>
         <h2 class="popup__form-title">Редактировать профиль</h2>
         <input type="text" name="name" class="popup__form-input popup__form-input_info_name" value="" minlength="2"
           maxlength="40" id="profile-title" required />
@@ -55,7 +55,7 @@
           maxlength="200" id="profile-about" required />
         <span class="popup__error profile-about-error"></span>
 
-        <button class="popup__form-save" type="submit" id="save-profile">Сохранить</button>
+        <button class="popup__form-button" type="submit" id="save-profile">Сохранить</button>
       </form>
     </div>
   </div>
@@ -63,7 +63,7 @@
   <div class="popup popup_type_card">
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
-      <form class="popup__form" id="popupForm-card" novalidate>
+      <form class="popup__form" name="card" id="popupForm-card" novalidate>
         <h2 class="popup__form-title">Новое место</h2>
         <input type="text" name="name" class="popup__form-input popup__form-input_info_title" value=""
           placeholder="Название" minlength="2" maxlength="30" id="card-title" required />
@@ -73,7 +73,7 @@
           placeholder="Ссылка на картинку" id="card-link" required />
         <span class="popup__error card-link-error"></span>
 
-        <button class="popup__form-save" type="submit" id="save-photo">Создать</button>
+        <button class="popup__form-button" type="submit" id="save-photo">Создать</button>
       </form>
     </div>
   </div>
@@ -81,14 +81,14 @@
   <div class="popup popup_type_avatar">
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
-      <form class="popup__form" id="popupForm-avatar" novalidate>
+      <form class="popup__form" name="avatar" id="popupForm-avatar" novalidate>
         <h2 class="popup__form-title">Обновить аватар</h2>
 
         <input type="url" name="link" class="popup__form-input popup__form-input_avatar_link" value=""
           placeholder="Ссылка на аватар" id="avatar-link" required />
         <span class="popup__error avatar-link-error"></span>
 
-        <button class="popup__form-save" type="submit" id="save-avatar">Сохранить</button>
+        <button class="popup__form-button" type="submit" id="save-avatar">Сохранить</button>
       </form>
     </div>
   </div>
@@ -98,7 +98,7 @@
       <button class="popup__close" type="button"></button>
       <form class="popup__form">
         <h2 class="popup__form-title">Вы уверены?</h2>
-        <button class="popup__form-confirm" type="submit" id="delete-confirm">Да</button>
+        <button class="popup__form-button popup__form-confirm" type="submit" id="delete-confirm">Да</button>
       </form>
     </div>
   </div>

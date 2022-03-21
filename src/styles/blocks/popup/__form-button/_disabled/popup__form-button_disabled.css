@@ -1,4 +1,4 @@
-.popup__form-save_disabled {
+.popup__form-button_disabled {
   background: #ffffff;
   color: #000000;
   border: 1px solid #000000;
@@ -6,6 +6,6 @@
   cursor: default;
 }
 
-.popup__form-save_disabled:hover {
+.popup__form-button_disabled:hover {
   background: #ffffff;
 }

@@ -6,18 +6,16 @@ export class PopupWithForm extends Popup {
     constructor({handleFormSubmit}, popupSelector) {
         super(popupSelector)
         this._handleFormSubmit = handleFormSubmit;
-        this._popupSelector = popupSelector;
-        this._popup = document.querySelector(this._popupSelector);
         this._form = this._popup.querySelector('.popup__form');
+        this._button = this._popup.querySelector('.popup__form-button');
+        this._inputList = this._form.querySelectorAll('.popup__form-input');
     }
 
-    changeHandleSubmit(handleConfirmSubmit) {
-        this._handleFormSubmit = handleConfirmSubmit
+    changeHandleSubmit(newSubmitHandler) {
+        this._handleFormSubmit = newSubmitHandler
     }
 
     _getInputValues() {
-        this._inputList = this._form.querySelectorAll('.popup__form-input');
-
         this._formValues = {};
         
         this._inputList.forEach(input => {
@@ -38,6 +36,14 @@ export class PopupWithForm extends Popup {
     close() {        
         super.close();
         this._form.reset();
+    }
+
+    renderLoading(isLoading, buttonText) {
+        if (isLoading) { 
+            this._button.textContent = 'Сохранение...'      
+          } else {       
+            this._button.textContent = buttonText;
+          }
     }
 
 }

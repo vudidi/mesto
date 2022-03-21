@@ -1,5 +1,5 @@
 export class UserInfo {
-    constructor(nameElementSelector, aboutElementSelector, avatarSelector, {data}) {
+    constructor(nameElementSelector, aboutElementSelector, avatarSelector) {
         this._nameElement = document.querySelector(nameElementSelector);
         this._aboutElement = document.querySelector(aboutElementSelector);
         this._avatarElement = document.querySelector(avatarSelector);

@@ -11,34 +11,17 @@ class Api {
         return fetch(`${this._baseUrl}/users/me`, {
                 headers: this._headers
             })
-            .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                }
-                return Promise.reject(`Что-то пошло не так: ${res.status}`);
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+            .then(this._checkResponse)
     }
 
     getCards() {
         return fetch(`${this._baseUrl}/cards`, {
                 headers: this._headers
             })
-            .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                }
-                return Promise.reject(`Что-то пошло не так: ${res.status}`);
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+            .then(this._checkResponse)
     }
 
     editProfile(name, about) {
-        renderLoadingProfile(true)
         return fetch(`${this._baseUrl}/users/me`, {
                 method: 'PATCH',
                 headers: this._headers,
@@ -47,22 +30,10 @@ class Api {
                     about
                 })
             })
-            .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                }
-                return Promise.reject(`Что-то пошло не так: ${res.status}`);
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-            .finally(() => {
-                renderLoadingProfile(false)
-            })
+            .then(this._checkResponse)
     }
 
     updateAvatar(avatar) {
-        renderLoadingAvatar(true)
         return fetch(`${this._baseUrl}/users/me/avatar`, {
                 method: 'PATCH',
                 headers: this._headers,
@@ -70,22 +41,10 @@ class Api {
                     avatar
                 })
             })
-            .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                }
-                return Promise.reject(`Что-то пошло не так: ${res.status}`);
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-            .finally(() => {
-                renderLoadingAvatar(false)
-            })
+            .then(this._checkResponse)
     }
 
     addCard(name, link) {
-        renderLoadingNewCard(true)
         return fetch(`${this._baseUrl}/cards`, {
                 method: 'POST',
                 headers: this._headers,
@@ -94,33 +53,14 @@ class Api {
                     link
                 })
             })
-            .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                }
-                return Promise.reject(`Что-то пошло не так: ${res.status}`);
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-            .finally(() => {
-                renderLoadingNewCard(false)
-            })
+            .then(this._checkResponse)
     }
 
     getLikes() {
         return fetch(`${this._baseUrl}/cards`, {
                 headers: this._headers
             })
-            .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                }
-                return Promise.reject(`Что-то пошло не так: ${res.status}`);
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+            .then(this._checkResponse)
     }
 
     likeCard(id) {
@@ -128,15 +68,7 @@ class Api {
                 method: 'PUT',
                 headers: this._headers
             })
-            .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                }
-                return Promise.reject(`Что-то пошло не так: ${res.status}`);
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+            .then(this._checkResponse)
     }
 
     removeLike(id) {
@@ -144,35 +76,22 @@ class Api {
                 method: 'DELETE',
                 headers: this._headers
             })
-            .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                }
-                return Promise.reject(`Что-то пошло не так: ${res.status}`);
-            })
-            .catch((err) => {
-                console.log(err)
-            })            
+            .then(this._checkResponse)
     }
 
     deleteCard(id) {
-        renderLoadingDeleteCard(true)
         return fetch(`${this._baseUrl}/cards/${id}`, {
                 method: 'DELETE',
                 headers: this._headers
             })
-            .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                }
-                return Promise.reject(`Что-то пошло не так: ${res.status}`);
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-            .finally(() => {
-                renderLoadingDeleteCard(false)
-            })
+            .then(this._checkResponse)
+    }
+
+    _checkResponse(res) {
+        if (res.ok) {
+            return res.json();
+        }
+        return Promise.reject(`Что-то пошло не так: ${res.status}`);
     }
 
 }
@@ -185,10 +104,3 @@ export const api = new Api({
         'Content-Type': 'application/json'
     }
 });
-
-import {
-    renderLoadingProfile,
-    renderLoadingAvatar,
-    renderLoadingNewCard,
-    renderLoadingDeleteCard
-} from '../utils/constants.js'

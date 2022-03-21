@@ -1,10 +1,10 @@
 export const validationSet = {
-    formSelector: '.popup__form',
-    inputSelector: '.popup__form-input',
-    submitButtonSelector: '.popup__form-save',
-    inactiveButtonClass: 'popup__form-save_disabled',
-    inputErrorClass: 'popup__form-input_type_error',
-    errorClass: 'popup__error_visible'
+  formSelector: '.popup__form',
+  inputSelector: '.popup__form-input',
+  submitButtonSelector: '.popup__form-button',
+  inactiveButtonClass: 'popup__form-button_disabled',
+  inputErrorClass: 'popup__form-input_type_error',
+  errorClass: 'popup__error_visible'
 }
 
 export const cardContentPopup = document.querySelector('.popup_type_card');
@@ -29,34 +29,3 @@ export const cardContentForm = document.querySelector('#popupForm-card');
 export const avatarForm = document.querySelector('#popupForm-avatar');
 export const avatarLinkInput = avatarForm.querySelector('.popup__form-input_avatar_link');
 export const buttonEditAvatar = document.querySelector('.profile__image');
-
-export function renderLoadingProfile(isLoading) {
-    if (isLoading) {
-      document.getElementById('save-profile').textContent = 'Сохранение...'
-    } else {
-      document.getElementById('save-profile').textContent = 'Сохранить'
-    }
-  }
-  export function renderLoadingAvatar(isLoading) {
-    if (isLoading) {
-      document.getElementById('save-avatar').textContent = 'Сохранение...'
-    } else {
-      document.getElementById('save-avatar').textContent = 'Сохранить'
-    }
-  }
-  
-  export function renderLoadingNewCard(isLoading) {
-    if (isLoading) {
-      document.getElementById('save-photo').textContent = 'Сохранение...'
-    } else {
-      document.getElementById('save-photo').textContent = 'Создать'
-    }
-  }
-  
-  export function renderLoadingDeleteCard(isLoading) {
-    if (isLoading) {    
-      document.getElementById('delete-confirm').textContent = 'Сохранение...'
-    } else {
-      document.getElementById('delete-confirm').textContent = 'Да'
-    }
-  }
