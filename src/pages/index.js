@@ -72,12 +72,12 @@ function createNewCard(item) {
       imageOpen.open(name, link);
     },
 
-    handleDeleteClick: (id) => {      popupDeleteConfirm.open()
-      
+    handleDeleteClick: (id) => {
+      popupDeleteConfirm.open()
       popupDeleteConfirm.changeHandleSubmit(() => {
-        popupDeleteConfirm.renderLoading(true)     
+        popupDeleteConfirm.renderLoading(true)
         api.deleteCard(id)
-          .then(() => {            
+          .then(() => {
             card.removeCard()
             popupDeleteConfirm.close()
           })
